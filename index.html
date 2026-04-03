@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA Data Hub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>🏀 NBA Data Hub</h1>
+        <p>
+          Static GitHub Pages app with NBA ELO snapshots, recent games, and a Kaggle NBA dataset index.
+        </p>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Team ELO Snapshot</h2>
+          <p id="elo-source" class="muted">Loading source…</p>
+          <div class="table-wrap">
+            <table id="elo-table">
+              <thead>
+                <tr><th>Team</th><th>ELO</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <canvas id="elo-chart" height="130"></canvas>
+        </article>
+
+        <article class="card">
+          <h2>Kaggle NBA Datasets</h2>
+          <p class="muted">Source: <code>data/kaggle_nba_datasets_fallback.csv</code></p>
+          <label for="dataset-filter">Filter datasets</label>
+          <input id="dataset-filter" type="text" placeholder="Try: shots, betting, salary…" />
+          <div class="table-wrap">
+            <table id="dataset-table">
+              <thead>
+                <tr><th>Name</th><th>Owner</th><th>Link</th></tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="card">
+        <h2>Recent Games</h2>
+        <div class="table-wrap">
+          <table id="games-table">
+            <thead>
+              <tr><th>Date</th><th>Matchup</th><th>Score</th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
